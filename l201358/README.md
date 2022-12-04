@@ -152,3 +152,19 @@ Sylius uses environment variables to configure the connection with database and 
 After everything is in place, run the following command to install Sylius:
 
 ## php bin/console sylius:install
+
+
+## How to start developing? - Project Structure
+
+After you have successfully gone through the installation process of Sylius-Standard you are probably going to start developing within the framework of Sylius.
+
+#### In the root directory of your project you will find these important subdirectories:
+
+
+```
+config/ - here you will be adding the yaml configuration files including routing, security, state machines configurations etc.
+var/log/ - these are the logs of your application
+var/cache/ - this is the cache of you project
+src/ - this is where you will be adding all you custom logic in the App
+public/ - there you will be placing assets of your project
+```
