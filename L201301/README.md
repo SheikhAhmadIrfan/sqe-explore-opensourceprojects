@@ -38,7 +38,7 @@ mathematical structure that can be reused and have trainable variables. In
 TensorFlow, most high-level implementations of layers and models, such as 
 Keras or Sonnet, are built on the same foundational class: tf.Module.
 
-//
+```
 class SimpleModule(tf.Module): 
  def __init__(self, name=None): 
  super().__init__(name=name) 
@@ -49,3 +49,4 @@ trainable=False, name="do_not_train_me")
  return self.a_variable * x + self.non_trainable_variable 
 simple_module = SimpleModule(name="simple") 
 simple_module(tf.constant(5.0))
+```
