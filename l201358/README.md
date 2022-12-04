@@ -41,6 +41,7 @@ A huge performance boost is achieved by optimizing queries. For example, let’s
 
 CookieStorage is used to manage data in the cookies’ ParameterBag of Symfony’s Request class, which needs to be set in the storage before making any operations on it.
 
+
 <?php
 
 use Sylius\Component\Storage\CookieStorage;
@@ -51,15 +52,19 @@ $request = // The request which cookies' data you would like to manage.
 $storage = new CookieStorage();
 
 $storage->setRequest($request);
+
 This service implements StorageInterface.
 
 #Doctrine Cache Storage
+
 DoctrineCacheStorage is used to manage data in objects implementing the Doctrine’s Cache interface.
+
 
 <?php
 
 use Doctrine\Common\Cache\Cache;
 use Sylius\Component\Storage\DoctrineCacheStorage;
+
 
 $cache = // Your doctrine's cache.
 
