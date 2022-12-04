@@ -139,16 +139,16 @@ Follow standards, base branch pull requests
 
 To begin creating your new project, run this command:
 
-#### composer create-project sylius/sylius-standard acme
+## composer create-project sylius/sylius-standard acme
 
 This will create a new Symfony project in the acme directory. Next, move to the project directory:
 
-#### cd acme
+## cd acme
 
 Sylius uses environment variables to configure the connection with database and mailer services. You can look up the default values in .env file and customise them by creating .env.local with variables you want to override. For example, if you want to change your database name from the default sylius_%kernel.environment% to my_custom_sylius_database, the contents of that new file should look like the following snippet:
 
-#### DATABASE_URL=mysql://username:password@host/my_custom_sylius_database
+## DATABASE_URL=mysql://username:password@host/my_custom_sylius_database
 
 After everything is in place, run the following command to install Sylius:
 
-#### php bin/console sylius:install
+## php bin/console sylius:install
