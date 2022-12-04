@@ -40,13 +40,37 @@ Keras or Sonnet, are built on the same foundational class: tf.Module.
 
 ```
 class SimpleModule(tf.Module): 
- def __init__(self, name=None): 
- super().__init__(name=name) 
- self.a_variable = tf.Variable(5.0, name="train_me") 
+def __init__(self, name=None): 
+super().__init__(name=name) 
+self.a_variable = tf.Variable(5.0, name="train_me") 
 self.non_trainable_variable = tf.Variable(5.0, 
 trainable=False, name="do_not_train_me") 
- def __call__(self, x): 
- return self.a_variable * x + self.non_trainable_variable 
+def __call__(self, x): 
+return self.a_variable * x + self.non_trainable_variable 
 simple_module = SimpleModule(name="simple") 
 simple_module(tf.constant(5.0))
 ```
+
+
+## Reusability: 
+
+Tensor flow provide facility of reuse parts of machine learning modules. By a 
+module, we mean a self-contained piece of a TensorFlow graph, along with its 
+weights, that can be reused across other, similar tasks. By reusing a module, a 
+developer can train a model using a smaller dataset, improve generalization, or 
+simply speed up training. Let’s look at a couple examples to make this concrete.
+
+TensorFlow Hub hosts Saved Models for TensorFlow 2, among other assets. 
+They can be loaded back into a Python program with obj = hub .load ( url ). The 
+returned obj is the result of tf. saved model. load(). This object can have arbitrary 
+attributes that are tf. functions, tf. Variables (initialized from their pre-trained values), 
+other resources and, recursively, more such objects.
+
+An interface to be implemented by the loaded obj in order to be reused in a 
+TensorFlow Python program. Saved Models conforming to this interface are 
+called Reusable Saved Models. 
+
+The TensorFlow Hub team recommends you to implementing the Reusable 
+Saved Model interface in all Saved Models that are meant to be reused in the 
+above sense. Many utilities from the tensor flow_ hub library, notably hub. Keras _ 
+layer, require Saved Models to implement it
